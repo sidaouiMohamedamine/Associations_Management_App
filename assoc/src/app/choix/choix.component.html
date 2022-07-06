@@ -1,0 +1,20 @@
+
+<div class="text-center mt-3">
+  <img src="../../assets/logo.png" alt="erreur" width="150px" height="150px" >
+
+<h5 class="  text-success display-4" >Create your Account</h5>
+</div>
+<div class="text-center ">
+
+<p class="m-5 h5 fw-bold text-center">Goals*:Create your association or participate to many activities?</p>
+<div class="container-fluid col-6">
+  <form #f="ngForm">
+<select class="form-select form-select-lg"   (change)="selected($event)">
+  <option [value]="tab.id" *ngFor="let tab of tab">
+    {{tab.val}}
+  </option>
+</select>
+<button class="btn btn-success fw-bold mt-4 w-25" [disabled]="b" (click)="rederiger()" >Suivant</button>
+</form>
+</div>
+</div>

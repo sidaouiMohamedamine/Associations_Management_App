@@ -1,0 +1,76 @@
+<div class="row g-0">
+  <div class="col-3">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div class="col-8 mt-5 ms-3">
+
+    <div>
+      <form #f="ngForm">
+        <h4 class="display-4 text-center mt-4">Add User</h4>
+         <div class="container mt-3 col-5 mb-3">
+           <!--Name field-->
+         <div class="form-group mb-3">
+          <label class="label-form fw-bold text-muted" for="type">Type</label>
+
+           <select class="form-select form-select-lg" id="type"  required name="type" ngModel #t="ngModel" [(ngModel)]="user.type" >
+            <option value="association">
+                Association
+            </option>
+            <option value="membre">
+              membre
+          </option>
+
+          </select>
+          </div>
+          <div class="alert alert-danger rounded-0 " *ngIf="t.invalid && t.touched">
+            User type field required !
+       </div>
+           <div class="form-group mb-3">
+           <label class="label-form fw-bold text-muted" for="name">Full Name</label>
+           <input type="text" class="form-control " id="name" required name="name" ngModel #n="ngModel" [(ngModel)]="user.nom">
+           </div>
+           <!--Message erreur-->
+                  <div class="alert alert-danger rounded-0 " *ngIf="n.invalid && n.touched">
+                       Name field required !
+                  </div>
+                  <!--Email field-->
+           <div class="form-group mb-3">
+            <label class="label-form fw-bold text-muted" for="email">E-mail</label>
+            <input type="text" class="form-control " id="email" name="email" required ngModel #m="ngModel" [(ngModel)]="user.email">
+            </div>
+            <div class="alert alert-danger rounded-0 " *ngIf="m.invalid && m.touched">
+              Email field required !
+            </div>
+            <!--Function field-->
+           <div class="form-group mb-3">
+            <label class="label-form fw-bold text-muted" for="function">function</label>
+            <input type="text" class="form-control " id="function" name="function" required ngModel #fn="ngModel" [(ngModel)]="user.fonction">
+            </div>
+            <div class="alert alert-danger rounded-0 " *ngIf="fn.invalid && fn.touched">
+              Function field required !
+         </div>
+            <!--Phone Number field-->
+            <div class="form-group mb-3">
+              <label class="label-form fw-bold text-muted" for="tel">Phone Number</label>
+              <input type="text" class="form-control " id="tel" name="phone" required ngModel #ph="ngModel" [(ngModel)]="user.tel">
+              </div>
+              <div class="alert alert-danger rounded-0 " *ngIf="ph.invalid && ph.touched">
+                Phone Number field required !
+           </div>
+              <!--Password field-->
+              <div class="form-group mb-3">
+                <label class="label-form fw-bold text-muted" for="password">Password</label>
+                <input type="password" class="form-control " id="password" required name="password" ngModel #ps="ngModel" [(ngModel)]="user.password">
+                </div>
+                <div class="alert alert-danger rounded-0 " *ngIf="ps.invalid && ps.touched">
+                  Password field required !
+             </div>
+         </div>
+
+         <div class="text-center">
+         <button class="btn btn-success  mt-3 ms-3  w-25 rounded-0 mb-5" [disabled]="f.invalid" (click)="addUser()">NewAccount</button>
+        </div>
+      </form>
+    </div>
+
+</div>

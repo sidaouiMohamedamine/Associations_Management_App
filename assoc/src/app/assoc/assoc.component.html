@@ -1,0 +1,52 @@
+<div>
+  <form #f="ngForm"  (ngSubmit)="onSubmit()">
+    <h4 class="display-4 text-center mt-4">Association Account</h4>
+     <div class="container mt-3 col-5 mb-3">
+       <!--Name field-->
+       <div class="form-group mb-3">
+       <label class="label-form fw-bold text-muted" for="name">Full Name</label>
+       <input type="text" class="form-control " id="name" required name="name" ngModel #n="ngModel" [(ngModel)]="user.nom">
+       </div>
+       <!--Message erreur-->
+              <div class="alert alert-danger rounded-0 " *ngIf="n.invalid && n.touched">
+                   Name field required !
+              </div>
+              <!--Email field-->
+       <div class="form-group mb-3">
+        <label class="label-form fw-bold text-muted" for="email">E-mail</label>
+        <input type="text" class="form-control " id="email" name="email" required ngModel #m="ngModel" [(ngModel)]="user.email">
+        </div>
+        <div class="alert alert-danger rounded-0 " *ngIf="m.invalid && m.touched">
+          Email field required !
+        </div>
+        <!--Function field-->
+       <div class="form-group mb-3">
+        <label class="label-form fw-bold text-muted" for="function">function</label>
+        <input type="text" class="form-control " id="function" name="function" required ngModel #fn="ngModel" [(ngModel)]="user.fonction">
+        </div>
+        <div class="alert alert-danger rounded-0 " *ngIf="fn.invalid && fn.touched">
+          Function field required !
+     </div>
+        <!--Phone Number field-->
+        <div class="form-group mb-3">
+          <label class="label-form fw-bold text-muted" for="tel">Phone Number</label>
+          <input type="text" class="form-control " id="tel" name="phone" required ngModel #ph="ngModel" [(ngModel)]="user.tel">
+          </div>
+          <div class="alert alert-danger rounded-0 " *ngIf="ph.invalid && ph.touched">
+            Phone Number field required !
+       </div>
+          <!--Password field-->
+          <div class="form-group mb-3">
+            <label class="label-form fw-bold text-muted" for="password">Password</label>
+            <input type="password" class="form-control " id="password" required name="password" ngModel #ps="ngModel" [(ngModel)]="user.password">
+            </div>
+            <div class="alert alert-danger rounded-0 " *ngIf="ps.invalid && ps.touched">
+              Password field required !
+         </div>
+     </div>
+
+     <div class="text-center">
+     <button class="btn btn-success  mt-3 ms-3  w-25 rounded-0 mb-5" [disabled]="f.invalid" (click)="addUser()">CreateAccount</button>
+    </div>
+  </form>
+</div>

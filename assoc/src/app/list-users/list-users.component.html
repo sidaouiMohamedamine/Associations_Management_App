@@ -1,0 +1,43 @@
+<div class="row g-0">
+  <div class="col-3">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div class="col-8 mt-5 me-3">
+    <table class="table align-item-center table caption-top table-striped table-hover ">
+       <caption class="fw-bold">Users lists</caption>
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Function</th>
+          <th scope="col">Type</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor =" let t of user ">
+          <td>{{t.idUser}}</td>
+          <td>{{t.nom}}</td>
+          <td>{{t.fonction}}</td>
+          <td>{{t.type}}</td>
+          <td>{{t.email}}</td>
+          <td>
+            <!--bouton ajouter-->
+            <button type="button" class="btn btn-primary ms-1" (click)="add()"><i class="fal fa-user"></i></button>
+            <!--bouton Modifier-->
+            <button type="button" class="btn btn-danger ms-1" (click)="modifier(t.idUser)"><i class="far fa-pen"></i></button>
+            <!--bouton supprimer-->
+            <button type="button" class="btn btn-danger ms-1" (click)="delete(t.idUser)"><i class="fal fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="text-center text-info " style="margin-top: -25%;margin-left: 5%; " *ngIf="">
+  <div class="spinner-border " role="status" style="width:70px;height: 70px;">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
